@@ -1,0 +1,109 @@
+.right-side-main {
+	width: 100%;
+	margin: 1% 0%;
+	min-height: 400px;
+	padding-top: 10px;
+}
+
+.right-side-buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.right-side-buttons .login {
+	width: 90px;
+}
+
+.right-side-times {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0px;
+}
+
+.right-side-times p {
+	font-size: 12px;
+	width: 90px;
+	color: #707070;
+	text-align: right;
+}
+
+.right-side-times .time {
+	font-size: 10px;
+	color: #D1FEF7;
+}
+
+.right-side-news {
+	background: #232222;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px 5px;
+	border-radius: 10px;
+	margin-top: 20px;
+}
+
+.right-side-news h5 {
+	color: #B4B5B9;
+	font-size: 12px;
+
+}
+
+.right-side-news .new {
+	background: #323538;
+	padding: 2px 2px;
+	width: 90%;
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+
+.right-side-news .new p {
+	font-size: 12px;
+	text-align: center;
+	color: #B4B5B9;
+	margin-bottom: 0px;
+}
+
+.right-side-news .new span {
+	color: #D55222;
+}
+
+.right-side-admins {
+	background: #232222;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px 5px;
+	border-radius: 10px;
+	margin-top: 20px;
+}
+
+.right-side-admins h5 {
+	color: #B4B5B9;
+	font-size: 12px;
+
+}
+
+.right-side-admins table {
+	width: 90%;
+}
+.right-side-admins table th {
+	background: #707070;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	color: #D1FEF7;
+	font-size: 12px;
+	padding: 7px 20px;
+}
+
+.right-side-admins table td {
+	background: #B4B5B9;
+	color: #D55222;
+	font-size: 12px;
+	padding: 7px 20px;
+}
+
+.right-side-admins .last {
+	background: #B4B5B9;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}

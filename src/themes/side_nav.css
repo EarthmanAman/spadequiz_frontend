@@ -1,0 +1,38 @@
+.side-main-col {
+	width: 200px;
+}
+.side-main {
+	background: #0D0D0D;
+	width: 100%;
+	margin: 1% 0%;
+	box-shadow: 2px 3px 6px #00000029;
+	min-height: 400px;
+	padding-top: 10px;
+}
+
+.side-main .item {
+	display: flex;
+	align-items: center;
+	margin: 10px 10px;
+	border-radius: 5px;
+	text-decoration: none;
+	color: #B4B5B9;
+	padding: 8px 20px;
+	background: none;
+	border: none;
+}
+
+.side-main .active {
+	background: #363B41;
+	color: #D1FEF7;
+}
+
+.side-main .item .icon {
+	font-size: 20px
+}
+
+.side-main .item h4 {
+	margin-left: 20px;
+	font-size: 12px;
+	margin-bottom: 0px;
+}

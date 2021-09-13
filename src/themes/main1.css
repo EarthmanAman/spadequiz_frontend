@@ -1,0 +1,16 @@
+.main-div {
+	margin-top: 10px;
+	display: flex;
+}
+
+.main-div .left-side-div {
+	flex: 0.8;
+}
+
+.main-div .main-content-div {
+	flex: 3;
+}
+
+.main-div .right-side-div {
+	flex: 0.7;
+}

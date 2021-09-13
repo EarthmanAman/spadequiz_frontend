@@ -1,0 +1,149 @@
+.main {
+	background: #121212;
+	padding: 1% 5%;
+}
+
+.content {
+	margin: 0px 1%;
+	background: #232222;
+	padding: 0px 4%;
+	padding-bottom: 2%;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+.title {
+	width: 100%;
+	text-align: center;
+	color: #B4B5B9;
+	padding: 15px 0px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.leader-row {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.league-leader {
+	display: flex;
+	color: white;
+	background:#363B41;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	margin: 10px 5px;
+}
+
+.league-row-title {
+
+}
+.league-leader p {
+	margin-bottom: 0px;
+}
+
+.league-leader .image {
+	flex: 1.2;
+	display: flex;
+	align-items: center;
+	justify-content: 
+}
+
+.league-leader .image img {
+	width: 80%;
+	height: auto;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.league-leader .league-leader-content {
+	flex: 0.8;
+	padding: 5px 7px;
+}
+
+.league-leader .league-leader-content h6 {
+	font-size: 12px;
+	color: #D1FEF7;
+	margin-bottom: 2px;
+}
+
+.league-leader .league-leader-content p {
+	font-size: 10px;
+	color: #B4B5B9;
+}
+
+.pow {
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.pow_div {
+	border: 1px solid #707070;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 15px 20px;
+	border-radius: 10px;
+}
+
+.pow_div h5 {
+	font-size: 13px;
+	margin-bottom: 10px;
+	color: #B4B5B9;
+}
+
+.pow_div p {
+	margin-bottom: 0px;
+	font-size: 12px;
+	color: #B4B5B9;
+}
+
+.pow_div .first {
+	color: #D1FEF7;
+	margin-right: 5px;
+}
+
+.pow_div .second {
+	color: #D55222;
+}
+.pow .win {
+	display: flex;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.announcement {
+	width: 90%;
+	margin: 5px 5%;
+	border: 1px solid #707070;
+	display: flex;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.announcement .from {
+	flex: 1;
+}
+
+.announcement .message {
+	flex: 4;
+}
+.announcement h6 {
+	color: #D55222
+}
+
+.announcement p {
+	color: #B4B5B9;
+	margin-bottom: 0px;
+}
+
+.tournament-buttons {
+	margin-bottom: 15px;
+}
+.tournament-button {
+	margin-right: 10px;
+}

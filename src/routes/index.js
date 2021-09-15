@@ -5,16 +5,18 @@ import HomeComponent from "../components/home/index"
 import LoginComponent from "../components/auth/login"
 import RegisterComponent from "../components/auth/register"
 import EmailVerifyComponent from "../components/auth/verify_email"
+import AccountComponent from "../components/account/index"
 
 class MyRoutes extends React.Component {
 	render() {
 		return (
 			<Router>
 				<Switch>
-					<Route path="/:slug" exact component={HomeComponent} />
 					<Route path="/login" exact component={LoginComponent} />
+					<Route path="/account" exact component={AccountComponent} />
 					<Route path="/register" exact component={RegisterComponent} />
 					<Route path="/verify_email" exact component={EmailVerifyComponent} />
+					<Route path="/" component={HomeComponent} />
 				</Switch>
 			</Router>
 		)

@@ -1,5 +1,6 @@
 import {login, register} from "../apis/auth"
 import {my_league, my_league_announcements} from "../apis/list"
+import {user_detail, update_user, update_password} from "../apis/detail"
 
 import {
 	REGISTER_SUCCESS,
@@ -19,6 +20,15 @@ import {
 
 	MY_LEAGUE_ANNOUNCEMENT,
 	MY_LEAGUE_ANNOUNCEMENT_ERROR,
+
+	USER_DETAIL,
+	UPDATE_USER_SUCCESS,
+	UPDATE_USER_ERROR,
+	UPDATE_USER_ERROR_REMOVE,
+
+	UPDATE_PASSWORD_SUCCESS,
+	UPDATE_PASSWORD_ERROR,
+	UPDATE_PASSWORD_ERROR_REMOVE,
 
 } from "./action_types"
 
@@ -102,5 +112,56 @@ export const MY_LEAGUE_ANNOUNCEMENT_ACTION = (slug) =>async dispatch => {
 
 	 .catch(error => {
 	 	dispatch({type:MY_LEAGUE_ANNOUNCEMENT_ERROR, payload:error})
+	 })
+}
+
+
+export const USER_DETAIL_ACTION = (username) =>async dispatch => {
+	
+	await user_detail(username).then(data => {
+		
+		
+	 	dispatch({type:USER_DETAIL, payload:data})
+	 	
+	  })
+
+	 .catch(error => {
+	 	console.log(error)
+	 })
+}
+
+export const UPDATE_USER_ACTION = (user, username, email, dob, gender, avatar) =>async dispatch => {
+	console.log("update action")
+	await update_user(user, username, email, dob, gender, avatar).then(data => {
+		if(data.username == undefined || data.username == null){
+			dispatch({type:UPDATE_USER_ERROR, payload:data})
+		}
+		else{
+			dispatch({type:UPDATE_USER_SUCCESS, payload:data})
+		}
+	 	
+	  })
+
+	 .catch(error => {
+	 	console.log(error)
+	 })
+}
+
+export const UPDATE_PASSWORD_ACTION = (username, new_password, old_password) =>async dispatch => {
+	
+	await update_password(username, new_password, old_password).then(data => {
+		
+		if(data.code === 200){
+			dispatch({type:UPDATE_PASSWORD_SUCCESS, payload:data})
+		}else{
+
+			dispatch({type:UPDATE_PASSWORD_ERROR, payload:data.errors})
+		}
+	 	
+	 	
+	  })
+
+	 .catch(error => {
+	 	console.log(error)
 	 })
 }

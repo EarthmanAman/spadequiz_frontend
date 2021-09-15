@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
+import Loader from "react-loader-spinner";
 import { NavLink, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 import {Button, Form, Row, Col, Alert} from "react-bootstrap"
@@ -21,6 +22,7 @@ class RegistrationForm extends React.Component {
 
 	    	show_error: true,
 	    	next: false,
+	    	spinner:false,
 	    };
 
 	  }
@@ -32,16 +34,15 @@ class RegistrationForm extends React.Component {
 		e.preventDefault();
 
 		const {username, email, dob, password, confirm_password, avatar} = this.state
-		this.setState({show_error:true})
-		console.log(avatar)
     	await this.props.REGISTER_USER(username, email, dob, password, confirm_password, avatar.base64)
+    	this.setState({show_error:true, spinner:true})
 	}
   	
   	componentWillReceiveProps(next_props){
   		console.log(next_props)
   		if(next_props.error === null && next_props.user !== undefined && next_props.user !== null && next_props.user.status_code === 201){
   			console.log("in here")
-  			this.setState({next:true})
+  			this.setState({next:true, spinner:false})
   		}
   	}
   	componentDidMount(){
@@ -99,6 +100,16 @@ class RegistrationForm extends React.Component {
 			  
 			  <Button variant="secondary" type="submit">REGISTER</Button>
 			</Form>
+
+			<Loader
+		        type="ThreeDots"
+		        color="#00BFFF"
+		        height={100}
+		        width={100}
+		        timeout={4000} //3 secs
+		        visible={this.state.spinner}
+		        className="spinner"
+			/>
     	</div>
     	
     )

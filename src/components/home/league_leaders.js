@@ -18,13 +18,13 @@ class LeagueLeaderComponent extends React.Component {
 				<Title title={"League Leaders"}/>
 				<Row>
 					<Col>
-						<LeaderRowComponent title={"Ratings"}/>
+						<LeaderRowComponent leaders={this.props.leaders} title={"Ratings"}/>
 					</Col>
 					<Col>
-						<LeaderRowComponent title={"Win %"}/>
+						<LeaderRowComponent leaders={this.props.leaders} title={"Win %"}/>
 					</Col>
 					<Col>
-						<LeaderRowComponent title={"Win Streak"}/>
+						<LeaderRowComponent leaders={this.props.leaders} title={"Win Streak"}/>
 					</Col>
 					<Col className="pow">
 						<div className="pow_div">

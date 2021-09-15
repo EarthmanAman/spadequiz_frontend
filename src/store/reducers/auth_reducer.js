@@ -8,6 +8,12 @@ import {
 	LOGIN_ERROR_REMOVE,
 
 	LOGOUT,
+	USER_DETAIL,
+	UPDATE_USER_SUCCESS,
+	UPDATE_USER_ERROR,
+
+	UPDATE_PASSWORD_SUCCESS,
+	UPDATE_PASSWORD_ERROR,
 
 } from "../actions/action_types"
 
@@ -47,6 +53,30 @@ const AuthReducer = (state={}, action) => {
 		case LOGOUT:
 			
 			return merge(state, {user:action.payload, token:action.payload, registration_error:action.payload, login_error:action.payload})
+			break;
+
+		case USER_DETAIL:
+			
+			return merge(state, {user:action.payload})
+			break;
+		case UPDATE_USER_SUCCESS:
+			
+			return merge(state, {user:action.payload, update_password_errors:null})
+			break;
+
+		case UPDATE_USER_ERROR:
+			
+			return merge(state, {update_password_errors:action.payload})
+			break;
+
+		case UPDATE_PASSWORD_SUCCESS:
+			
+			return merge(state, {update_password:action.payload, update_password_errors:null})
+			break;
+
+		case UPDATE_PASSWORD_ERROR:
+			
+			return merge(state, {update_password_errors:action.payload})
 			break;
 
 		default:

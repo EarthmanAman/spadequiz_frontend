@@ -1,0 +1,100 @@
+.main {
+	background: #121212;
+	padding: 1% 5%;
+	min-height: 700px;
+}
+
+.account-content {
+	margin: 0px 0%;
+	padding: 0px 1%;
+	padding-bottom: 2%;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	display: flex;
+	min-height: 100%;
+}
+
+.buttons {
+	flex:1;
+	padding: 15px;
+}
+
+.info {
+	flex: 4;
+	background: #232222;
+}
+
+.button-title {
+	font-size: 18px;
+	color: #B4B5B9;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+
+.button {
+	margin-bottom: 10px;
+	font-size: 12px;
+	padding: 10px 10px;
+	width: 100%;
+}
+
+.modal-content {
+	background: grey
+}
+
+.modal-title {
+	color: #D1FEF7;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 16px
+}
+
+.input-title {
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #B4B5B9;
+	font-size: 13px;
+}
+
+.input-info {
+	color: #B4B5B9
+}
+
+.account-avatar-div {
+	width: 200px;
+	margin-top: 20px;
+}
+.account-avatar {
+	
+	height: auto;
+	border-radius: 100%;
+}
+
+.personal-info {
+	margin: 20px;
+	font-size: 12px;
+}
+
+.table>:not(caption)>*>* {
+	padding: 0.3rem 0.3rem;
+}
+
+.games-stat-info {
+	margin: 20px;
+	font-size: 11px;
+}
+
+.spinner {
+	position: absolute;
+	left: 20%;
+	right: 20%;
+	top: 23%;
+	background: #121212;
+	height: 60%;
+	width: 60%;
+	opacity: 0.8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

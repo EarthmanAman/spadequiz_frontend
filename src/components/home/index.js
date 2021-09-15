@@ -17,7 +17,7 @@ class HelperComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				<LeagueLeadeComponent/>
+				<LeagueLeadeComponent leaders={this.props.leaders}/>
 				<LeagueAnnouncementComponent announcements={this.props.my_league_announcements}/>
 				<TournamentComponent />
 			</div>
@@ -31,11 +31,11 @@ class HomeComponent extends React.Component {
 		await this.props.MY_LEAGUE_ANNOUNCEMENT_ACTION("spadequiz")
 	}
 	render() {
-		console.log(this.props.my_league)
+		console.log(this.props.user)
 		return (
 			<div className="main">
 				<BaseOne />
-				<MainOne content={<HelperComponent my_league_announcements={this.props.my_league_announcements}/>}/>
+				<MainOne content={<HelperComponent leaders={this.props.my_league.members} my_league_announcements={this.props.my_league_announcements}/>}/>
 			</div>
 		)
 	}
@@ -44,6 +44,7 @@ class HomeComponent extends React.Component {
 const mapStateToProps = state => {
   return {
     my_league: state.list_reducer.my_league,
+    user: state.auth_reducer.user,
     my_league_announcements: state.list_reducer.my_league_announcements,
     my_league_error: state.list_reducer.my_league_error,
     my_league_announcements_error: state.list_reducer.my_league_announcements_error,

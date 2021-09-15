@@ -1,5 +1,5 @@
 export async function my_league(slug) {
-	console.log("in league api")
+	
 	try{
 		let raw_data = await fetch(`http://localhost:8000/${slug}`,{
 			method: 'GET',
@@ -25,7 +25,7 @@ export async function my_league(slug) {
 
 
 export async function my_league_announcements(slug) {
-	console.log("in league announcements")
+	
 	try{
 		let raw_data = await fetch(`http://localhost:8000/${slug}/announcements.json`,{
 			method: 'GET',

@@ -1,11 +1,11 @@
 import React from 'react';
-
+import Loader from "react-loader-spinner";
 import { connect } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 import {Button, Form, Row, Col, Alert} from "react-bootstrap"
 import '../../themes/register.css';
-import {LOGIN_USER, MESSAGES_ACTION} from "../../store/actions/actions"
+import {LOGIN_USER, MESSAGES_ACTION, USER_DETAIL_ACTION} from "../../store/actions/actions"
 
 class LoginComponent extends React.Component {
 	constructor(props){
@@ -15,13 +15,16 @@ class LoginComponent extends React.Component {
 			password:null,
 			next: false,
 			show_error: true,
+			spinner: false
 		}
 	}
 
-	componentWillReceiveProps(next_props){
+	componentWillReceiveProps = async(next_props) => {
   		console.log(next_props)
   		if(next_props.error === null && next_props.token !== undefined && next_props.token !== null){
-  			this.setState({show_error:false, next:true})
+  			this.setState({show_error:false, next:true, spinner:false})
+  			console.log(this.state.username)
+  			await this.props.USER_DETAIL_ACTION(this.state.username)
   			this.props.MESSAGES_ACTION({"variant":"success", "message":"Logged in successfully"})
   		}
   	}
@@ -33,7 +36,7 @@ class LoginComponent extends React.Component {
 		e.preventDefault()
 		const {username, password} = this.state
 
-		this.setState({show_error:true})
+		this.setState({show_error:true, spinner:true})
     	await this.props.LOGIN_USER(username, password)
 	}
 
@@ -67,6 +70,16 @@ class LoginComponent extends React.Component {
 			  	variant="secondary"
 			  	>LOGIN</Button>
 			</Form>
+
+			<Loader
+		        type="ThreeDots"
+		        color="#00BFFF"
+		        height={100}
+		        width={100}
+		        timeout={4000} //3 secs
+		        visible={this.state.spinner}
+		        className="spinner"
+		      />
     	</div>
     	
     )
@@ -84,6 +97,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps =  {
     LOGIN_USER,
     MESSAGES_ACTION,
+    USER_DETAIL_ACTION,
 };
 
 export default connect(

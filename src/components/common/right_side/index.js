@@ -22,8 +22,13 @@ class SideNavComponent extends React.Component {
     return (
     	<div className="right-side-main">
           <Top />
-          <News />
-          <Admins />
+
+          {(this.props.two == false) ? 
+            <News />:null
+          }
+          {(this.props.two == false) ? 
+          <Admins /> : null}
+
     	</div>
     )
   }

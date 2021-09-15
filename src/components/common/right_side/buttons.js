@@ -27,9 +27,10 @@ class RightSideButtonsComponent extends React.Component {
 		this.setState({next:false})
 	}
   render() {
-  	
+  	if(this.state.next){
+      return <Redirect to="/login" />
+    }
     return (
-    	<div>{this.state.next ? <Redirect to="/" />:null},</div>,
     	<div className="right-side-buttons">
     	  {this.props.token ? 
     	  	<Button onClick={this.handleLogout} variant="outline-secondary" className="login">Logout</Button>:

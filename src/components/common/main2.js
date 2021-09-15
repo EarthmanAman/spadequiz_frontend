@@ -53,7 +53,7 @@ class MainOneComponent extends React.Component {
                 
             </div>
             <div className="right-side-div">
-                <RightSide two={false}/>
+                <RightSide two={true}/>
             </div>
     	</div>
     )

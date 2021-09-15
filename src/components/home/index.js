@@ -35,7 +35,9 @@ class HomeComponent extends React.Component {
 	}
 
 	componentWillReceiveProps(next_props){
-		
+		this.setState({
+			spinner:false,
+		})
 	}
 	componentDidMount = async() => {
 		console.log("in component did mount")
@@ -43,7 +45,7 @@ class HomeComponent extends React.Component {
 		
 	}
 	render() {
-		console.log(this.props.my_league_announcements)
+		console.log(this.props.my_league)
 		return (
 			<div className="main">
 				{this.props.my_league ?
@@ -55,7 +57,7 @@ class HomeComponent extends React.Component {
 			        color="#00BFFF"
 			        height={100}
 			        width={100}
-			        timeout={10000}
+			        timeout={5000}
 			        visible={this.state.spinner}
 			        className="spinner"
 			      />

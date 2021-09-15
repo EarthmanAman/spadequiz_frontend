@@ -1,6 +1,7 @@
 import React from "react"
 import {Container} from "react-bootstrap"
 import { connect } from "react-redux";
+import Loader from "react-loader-spinner";
 import "bootstrap/dist/css/bootstrap.min.css"
 import BaseOne from "../common/base1"
 import MainOne from "../common/main1"
@@ -26,17 +27,38 @@ class HelperComponent extends React.Component {
 }
 
 class HomeComponent extends React.Component {
+	constructor(props){
+		super(props)
+		this.state = {
+			spinner:true
+		}
+	}
+
+	componentWillReceiveProps(next_props){
+		
+	}
 	componentDidMount = async() => {
 		console.log("in component did mount")
 		await this.props.MY_LEAGUE_ACTION("spadequiz")
-		await this.props.MY_LEAGUE_ANNOUNCEMENT_ACTION("spadequiz")
+		
 	}
 	render() {
-		console.log(this.props.my_league)
+		console.log(this.props.my_league_announcements)
 		return (
 			<div className="main">
-				<BaseOne />
-				<MainOne content={<HelperComponent leaders={this.props.my_league.members} my_league_announcements={this.props.my_league_announcements}/>}/>
+				{this.props.my_league ?
+				<BaseOne />: null}
+				{this.props.my_league ? 
+				<MainOne content={<HelperComponent leaders={this.props.my_league.members} my_league_announcements={this.props.my_league.announcements}/>}/>: null}
+			<Loader
+			        type="ThreeDots"
+			        color="#00BFFF"
+			        height={100}
+			        width={100}
+			        timeout={10000}
+			        visible={this.state.spinner}
+			        className="spinner"
+			      />
 			</div>
 		)
 	}

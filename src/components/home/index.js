@@ -35,8 +35,7 @@ class HomeComponent extends React.Component {
 		console.log(this.props.my_league)
 		return (
 			<div className="main">
-				<BaseOne />
-				<MainOne content={<HelperComponent leaders={this.props.my_league.members} my_league_announcements={this.props.my_league_announcements}/>}/>
+				
 			</div>
 		)
 	}

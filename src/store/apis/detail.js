@@ -3,7 +3,7 @@ import {store} from "../store"
 export async function user_detail(username) {
 	var token = store.getState().auth_reducer.token
 	try{
-		let raw_data = await fetch(`http://localhost:8000/accounts/users/${username}.json`,{
+		let raw_data = await fetch(`https://spadequizapi.herokuapp.com/accounts/users/${username}.json`,{
 			method: 'GET',
 	        headers: {
 	            'Accept': 'application/json',
@@ -42,7 +42,7 @@ export async function update_user(user, username, email, dob, gender, avatar) {
 	
 	
 	try{
-		let raw_data = await fetch(`http://localhost:8000/accounts/update/${user}.json`,{
+		let raw_data = await fetch(`https://spadequizapi.herokuapp.com/accounts/update/${user}.json`,{
 			method: 'PUT',
 
 	        body: form_data
@@ -65,7 +65,7 @@ export async function update_user(user, username, email, dob, gender, avatar) {
 export async function update_password(username, new_password, old_password) {
 	
 	try{
-		let rToken = await fetch(`http://localhost:8000/accounts/change_password/${username}`,{
+		let rToken = await fetch(`https://spadequizapi.herokuapp.com/accounts/change_password/${username}`,{
 			method: 'PUT',
 	        headers: {
 	            'Accept': 'application/json',

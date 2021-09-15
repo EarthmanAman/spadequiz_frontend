@@ -48,7 +48,7 @@ class MainOneComponent extends React.Component {
     		    <SideNav />
             </div>
             <div className="main-content-div">
-                {(this.state.message_visible && this.props.message !== null) ? <div style={{"margin-right":40, "margin-left":40,}}><Alert variant={this.props.message.variant}>{this.props.message.message}</Alert></div>: null}
+                {(this.state.message_visible && this.props.message !== null) ? <div style={{"margin-right":40, "margin-left":40,}}><Alert variant={"success"}>Successfully</Alert></div>: null}
                 {this.props.content}
                 
             </div>

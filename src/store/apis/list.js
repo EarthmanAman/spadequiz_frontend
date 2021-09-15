@@ -13,6 +13,7 @@ export async function my_league(slug) {
 
 		
 		let data = await raw_data.json();
+		console.log(data)
 		raw_data = null;
 		return data
 	}

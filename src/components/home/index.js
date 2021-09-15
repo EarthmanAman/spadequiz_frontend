@@ -27,11 +27,12 @@ class HelperComponent extends React.Component {
 
 class HomeComponent extends React.Component {
 	componentDidMount = async() => {
+		console.log("in component did mount")
 		await this.props.MY_LEAGUE_ACTION("spadequiz")
 		await this.props.MY_LEAGUE_ANNOUNCEMENT_ACTION("spadequiz")
 	}
 	render() {
-		console.log(this.props.user)
+		console.log(this.props.my_league)
 		return (
 			<div className="main">
 				<BaseOne />

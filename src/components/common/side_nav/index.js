@@ -64,10 +64,10 @@ class SideNavComponent extends React.Component {
                 <h4>REPORT LOSS</h4>
             </a>
 
-            <a className="item">
+            <Link to="/tournament" className="item">
                 <MdEventSeat className="icon"/>
                 <h4>TOURNAMENTS</h4>
-            </a>
+            </Link>
 
             {/*<a className="item">
                 <MdGrade className="icon"/>

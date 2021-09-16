@@ -22,8 +22,7 @@ class LoginComponent extends React.Component {
 	componentWillReceiveProps = async(next_props) => {
   		console.log(next_props)
   		if(next_props.error === null && next_props.token !== undefined && next_props.token !== null){
-  			this.setState({show_error:false, next:true, spinner:false})
-  			console.log(this.state.username)
+  			this.setState({show_error:false, next:true})
   			await this.props.USER_DETAIL_ACTION(this.state.username)
   			this.props.MESSAGES_ACTION({"variant":"success", "message":"Logged in successfully"})
   		}
@@ -51,6 +50,15 @@ class LoginComponent extends React.Component {
     return (
     	<div className="register-main">
     		<h3>Enter your Details to Login</h3>
+    		<Loader
+		        type="ThreeDots"
+		        color="#00BFFF"
+		        height={100}
+		        width={100}
+		        timeout={4000} //3 secs
+		        visible={this.state.spinner}
+		        className="spinner"
+		      />
     		<Form onSubmit={this.handle_submit}>
 	    		{(this.props.error && this.state.show_error) ? 
 	    			Object.keys(this.props.error).map((key) => <Alert variant="danger">{key}: {this.props.error[key][0]}</Alert>): null
@@ -71,15 +79,7 @@ class LoginComponent extends React.Component {
 			  	>LOGIN</Button>
 			</Form>
 
-			<Loader
-		        type="ThreeDots"
-		        color="#00BFFF"
-		        height={100}
-		        width={100}
-		        timeout={4000} //3 secs
-		        visible={this.state.spinner}
-		        className="spinner"
-		      />
+			
     	</div>
     	
     )

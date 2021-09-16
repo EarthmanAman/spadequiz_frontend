@@ -16,7 +16,7 @@ class LeaderRowComponent extends React.Component {
 				{this.props.leaders.map((leader) => 
 					<div className="league-leader">
 						<div className="image">
-							<img src={`http://127.0.0.1:8000${leader.user.avatar}`} width="50" />
+							<img src={`https://spadequizapi.herokuapp.com${leader.user.avatar}`} width="50" />
 						</div>
 						<div className="league-leader-content">
 							<h6>{leader.user.username}</h6>

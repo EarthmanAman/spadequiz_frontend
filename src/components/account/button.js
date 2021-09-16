@@ -56,7 +56,6 @@ class ButtonComponent extends React.Component {
 
   		this.setState({
   			show:false,
-  			spinner: false,
   		})
   	}
 
@@ -99,6 +98,14 @@ class ButtonComponent extends React.Component {
 		return (
 			<div>
 				<Button onClick={this.handleButtonClick} variant="outline-secondary" className="button">{this.props.title}</Button>
+				{this.state.spinner ? <Loader
+			        type="ThreeDots"
+			        color="#00BFFF"
+			        height={100}
+			        width={100}
+			        timeout={4000}
+			        className="spinner"
+			      />: null}
 				<Modal 
 					show={this.state.show} 
 					onHide={this.handleClose}
@@ -155,15 +162,7 @@ class ButtonComponent extends React.Component {
 			        </Modal.Footer>
      			 </Modal>
 
-     			 <Loader
-			        type="ThreeDots"
-			        color="#00BFFF"
-			        height={100}
-			        width={100}
-			        timeout={4000}
-			        visible={this.state.spinner}
-			        className="spinner"
-			      />
+     			 
 			</div>
 		)
 	}

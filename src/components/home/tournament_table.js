@@ -15,28 +15,25 @@ class TournamentTableComponent extends React.Component {
 			    <tr>
 			      <th>TD Head</th>
 			      <th>Name</th>
-			      <th>Start Date</th>
-			      <th>End Date</th>
+			      <th>Start_Date</th>
+			      <th>Start_Time</th>
+			      <th>End_Date</th>
+			      <th>End_Time</th>
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <td>1</td>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
-			    </tr>
-			    <tr>
-			      <td>2</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			    </tr>
-			    <tr>
-			      <td>3</td>
-			      <td colSpan="2">Larry the Bird</td>
-			      <td>@twitter</td>
-			    </tr>
+			  	{this.props.data.map((tournament) => 
+			  		<tr>
+				      <td>{tournament.admin}</td>
+				      <td>{tournament.name}</td>
+				      <td>{tournament.start_date.date}</td>
+				      <td>{tournament.start_date.time}</td>
+				      <td>{tournament.end_date.date}</td>
+				      <td>{tournament.end_date.time}</td>
+				    </tr>
+			  	)}
+			    
+			    
 			  </tbody>
 			</Table>
 		)

@@ -10,7 +10,7 @@ class LeaderRowComponent extends React.Component {
 		return (
 			<div className="leader-row">
 				<div className="league-row-title">
-					<Button variant={"outline-secondary"}>{this.props.title}</Button>
+					<Button variant={"outline-secondary"} disabled>{this.props.title}</Button>
 				</div>
 
 				{this.props.leaders.map((leader) => 

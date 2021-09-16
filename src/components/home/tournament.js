@@ -56,7 +56,15 @@ class TournamentCenterComponent extends React.Component {
 					<Button className="tournament-button" onClick={this.handleUpcoming} variant={this.state.upcoming}>Upcoming Events</Button>
 				</div>
 				<div>
-					<TournamentTable />
+				{this.state.today === "outline-primary" ? 
+					<TournamentTable data={this.props.tournaments.today}/>: null
+				}
+				{this.state.tommorrow === "outline-primary" ? 
+					<TournamentTable data={this.props.tournaments.tommorrow}/>: null
+				}
+				{this.state.upcoming === "outline-primary" ? 
+					<TournamentTable data={this.props.tournaments.upcoming}/>: null
+				}
 				</div>
 			</div>
 		)

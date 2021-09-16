@@ -20,7 +20,7 @@ class HelperComponent extends React.Component {
 			<div>
 				<LeagueLeadeComponent leaders={this.props.leaders}/>
 				<LeagueAnnouncementComponent announcements={this.props.my_league_announcements}/>
-				<TournamentComponent />
+				<TournamentComponent  tournaments={this.props.tournaments}/>
 			</div>
 		)
 	}
@@ -51,7 +51,11 @@ class HomeComponent extends React.Component {
 				{this.props.my_league ?
 				<BaseOne />: null}
 				{this.props.my_league ? 
-				<MainOne content={<HelperComponent leaders={this.props.my_league.members} my_league_announcements={this.props.my_league.announcements}/>}/>: null}
+				<MainOne content={<HelperComponent 
+					leaders={this.props.my_league.members} 
+					my_league_announcements={this.props.my_league.announcements}
+					tournaments={this.props.my_league.tournaments}
+				/>}/>: null}
 			<Loader
 			        type="ThreeDots"
 			        color="#00BFFF"

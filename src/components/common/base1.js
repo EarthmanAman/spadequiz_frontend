@@ -23,7 +23,7 @@ class BaseOneComponent extends React.Component {
     	<div className="base1-main">
     		<div className="top">
     			<Banner src={my_league.banner}/>
-    			<LeagueDesc description={my_league.description} created_date={my_league.created_date}/>
+    			<LeagueDesc description={my_league.description} created_date={my_league.created_date} statistics={this.props.my_league.statistics}/>
     		</div>
     	</div>
     )

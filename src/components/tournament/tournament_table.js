@@ -36,7 +36,7 @@ class TournamentTableComponent extends React.Component {
 				      <td>{tournament.end_date.time}</td>
 				      {this.props.action === "more" ?
 				      <td><Link to="/tournament/sds"><Button variant="primary">{this.props.action}</Button></Link></td>:
-				      <td><Button variant="primary">{this.props.action}</Button></td>}
+				      <td><Link to="/my_tournament"><Button variant="primary">{this.props.action}</Button></Link></td>}
 				    </tr>
 			  	)}
 			    

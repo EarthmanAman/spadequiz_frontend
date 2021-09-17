@@ -9,8 +9,8 @@ import '../../../themes/tournament.css';
 import {
 	USER_DETAIL_ACTION,
 } from "../../../store/actions/actions"
-import OpenTournamentRegister from "./register"
-import MemberComponent from "./members"
+import NextMatchesComponent from "./next"
+import MyMatchesResultComponent from "./my_results"
 
 
 class HelperComponent extends React.Component {
@@ -74,14 +74,15 @@ class HelperComponent extends React.Component {
 					</Breadcrumb>
 				</div>
 				<div className="tournament-buttons">
-					<Button className={`tournament-button ${this.state.home_active}`} onClick={this.handlehome} variant={this.state.home}>Register</Button>
-					<Button className={`tournament-button ${this.state.pending_active}`} onClick={this.handlepending} variant={this.state.pending}>Registered Teams</Button>
+					<Button className={`tournament-button ${this.state.home_active}`} onClick={this.handlehome} variant={this.state.home}>Matches</Button>
+					<Button className={`tournament-button ${this.state.pending_active}`} onClick={this.handlepending} variant={this.state.pending}>Results</Button>
 					<Button className={`tournament-button ${this.state.rules_active}`} onClick={this.handlerules} variant={this.state.rules}>Tournament Rules</Button>
 				</div>
-				{this.state.home_active == "active-button" ?
-				<OpenTournamentRegister />:null}
-				{this.state.pending_active == "active-button" ?
-				<MemberComponent />:null}
+				{this.state.home_active ?
+					<div>
+						<NextMatchesComponent />
+						<MyMatchesResultComponent />
+					</div>: null}
 			</div>
 		)
 	}

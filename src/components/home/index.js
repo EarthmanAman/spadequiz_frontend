@@ -45,7 +45,7 @@ class HomeComponent extends React.Component {
 		
 	}
 	render() {
-		console.log(this.props.my_league)
+		console.log(this.props.my_tournaments)
 		return (
 			<div className="main">
 				{this.props.my_league ?
@@ -74,9 +74,8 @@ const mapStateToProps = state => {
   return {
     my_league: state.list_reducer.my_league,
     user: state.auth_reducer.user,
-    my_league_announcements: state.list_reducer.my_league_announcements,
+    my_tournaments: state.list_reducer.my_tournaments,
     my_league_error: state.list_reducer.my_league_error,
-    my_league_announcements_error: state.list_reducer.my_league_announcements_error,
   };
 };
 

@@ -1,6 +1,12 @@
 import {login, register} from "../apis/auth"
 import {my_league, my_league_announcements} from "../apis/list"
-import {user_detail, update_user, update_password} from "../apis/detail"
+import {
+	user_detail, 
+	update_user, 
+	update_password, 
+	my_tournaments,
+	confirm_partnership
+} from "../apis/detail"
 
 import {
 	REGISTER_SUCCESS,
@@ -29,6 +35,11 @@ import {
 	UPDATE_PASSWORD_SUCCESS,
 	UPDATE_PASSWORD_ERROR,
 	UPDATE_PASSWORD_ERROR_REMOVE,
+
+	MY_TOURNAMENTS,
+	MY_TOURNAMENTS_ERRORS,
+
+	CONFIRMED_PARTNERSHIP
 
 } from "./action_types"
 
@@ -158,6 +169,35 @@ export const UPDATE_PASSWORD_ACTION = (username, new_password, old_password) =>a
 			dispatch({type:UPDATE_PASSWORD_ERROR, payload:data.errors})
 		}
 	 	
+	 	
+	  })
+
+	 .catch(error => {
+	 	console.log(error)
+	 })
+}
+
+
+export const MY_TOURNAMENTS_ACTION = (username) =>async dispatch => {
+	
+	await my_tournaments(username).then(data => {
+		
+		
+	 	dispatch({type:MY_TOURNAMENTS, payload:data})
+	 	
+	  })
+
+	 .catch(error => {
+	 	console.log(error)
+	 })
+}
+
+export const CONFIRMED_PARTNERSHIP_ACTION = (id, confirmed) =>async dispatch => {
+	console.log("confirm")
+	await confirm_partnership(id, confirmed).then(data => {
+		
+		
+	 	dispatch({type:CONFIRMED_PARTNERSHIP, payload:data})
 	 	
 	  })
 

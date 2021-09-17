@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
-import { NavLink, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 import {Button, Form, Row, Col, Alert} from "react-bootstrap"
 import FileBase64 from 'react-file-base64';

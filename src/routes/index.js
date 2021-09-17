@@ -7,6 +7,7 @@ import RegisterComponent from "../components/auth/register"
 import EmailVerifyComponent from "../components/auth/verify_email"
 import AccountComponent from "../components/account/index"
 import TournamentComponent from "../components/tournament/index"
+import TournamentDetailComponent from "../components/tournament/open/index"
 
 class MyRoutes extends React.Component {
 	render() {
@@ -16,6 +17,7 @@ class MyRoutes extends React.Component {
 					<Route path="/login" exact component={LoginComponent} />
 					<Route path="/account" exact component={AccountComponent} />
 					<Route path="/tournament" exact component={TournamentComponent} />
+					<Route path="/tournament/:league_name" component={TournamentDetailComponent} />
 					<Route path="/register" exact component={RegisterComponent} />
 					<Route path="/verify_email" exact component={EmailVerifyComponent} />
 					<Route path="/" component={HomeComponent} />

@@ -12,6 +12,7 @@ import {
 
 import NextTournamentComponent from "./next_tournaments"
 import MyTournamentComponent from "./my_tournaments"
+import PendingsComponent from "./pendings"
 
 class HelperComponent extends React.Component {
 	constructor(props){
@@ -71,16 +72,25 @@ class HelperComponent extends React.Component {
 					<Button className={`tournament-button ${this.state.pending_active}`} onClick={this.handlepending} variant={this.state.pending}>Pending Team Confirmation</Button>
 					<Button className={`tournament-button ${this.state.rules_active}`} onClick={this.handlerules} variant={this.state.rules}>Tournament Rules</Button>
 				</div>
-				<div className="tournament-content-2">
-					<NextTournamentComponent tournaments={this.props.tournaments} />
-				</div>
 
-				<div className="tournament-content-2">
-					<Title title={"My Tournaments"}/>
-					{(this.props.user != null || this.props.user != undefined) ?
-					<MyTournamentComponent tournaments={this.props.tournaments} />:
-					<h6>You must be logged in to view this</h6>}
-				</div>
+				{this.state.home_active === "active-button" ?
+				<div>
+					<div className="tournament-content-2">
+						<NextTournamentComponent tournaments={this.props.tournaments} />
+					</div>
+
+					<div className="tournament-content-2">
+						<Title title={"My Tournaments"}/>
+						{(this.props.user != null || this.props.user != undefined) ?
+						<MyTournamentComponent my_tournaments={this.props.my_tournaments.my_tournaments} />:
+						<h6>You must be logged in to view this</h6>}
+					</div>
+				</div>: null}
+				{this.state.pending_active === "active-button" ?
+				<div>
+					<PendingsComponent />
+				</div>: null}
+
 			</div>
 		)
 	}
@@ -91,11 +101,11 @@ class TournamentComponent extends React.Component {
 	}
 
 	render() {
-	
+		console.log(this.props.my_tournaments)
 		return (
 			<div className="main">
 				<BaseTwo />
-				<MainTwo content={<HelperComponent tournaments={this.props.my_league.tournaments} user={this.props.user}/>}/>
+				<MainTwo content={<HelperComponent my_tournaments={this.props.my_tournaments} tournaments={this.props.my_league.tournaments} user={this.props.user}/>}/>
 			</div>
 		)
 	}
@@ -104,6 +114,7 @@ class TournamentComponent extends React.Component {
 const mapStateToProps = state => {
   return {
     my_league: state.list_reducer.my_league,
+    my_tournaments: (state.list_reducer.my_tournaments) ? state.list_reducer.my_tournaments: [],
     user: state.auth_reducer.user,
   };
 };

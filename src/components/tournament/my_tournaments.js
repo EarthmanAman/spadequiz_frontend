@@ -9,56 +9,17 @@ import Title from "../home/title"
 import TournamentTable from "./tournament_table"
 
 class TournamentCenterComponent extends React.Component {
-	constructor(props){
-		super(props)
-		this.state = {
-			today:"outline-primary",
-			tommorrow:"outline-secondary",
-			upcoming:"outline-secondary",
-		}
-	}
-
-	handleToday = (e) => {
-		e.preventDefault()
-		this.setState({
-			today:"outline-primary",
-			tommorrow:"outline-secondary",
-			upcoming:"outline-secondary",
-		})
-	}
-
-	handleTommorrow = (e) => {
-		e.preventDefault()
-		this.setState({
-			today:"outline-secondary",
-			tommorrow:"outline-primary",
-			upcoming:"outline-secondary",
-		})
-	}
-
-	handleUpcoming = (e) => {
-		e.preventDefault()
-		this.setState({
-			today:"outline-secondary",
-			tommorrow:"outline-secondary",
-			upcoming:"outline-primary",
-		})
-	}
-
 
 	render() {
+		console.log(this.props.my_tournaments)
 		return (
 			<div >
 				
-				{this.state.today === "outline-primary" ? 
-					<TournamentTable data={this.props.tournaments.today} action="view"/>: null
+				{this.props.my_tournaments.length !== 0 ? 
+					<TournamentTable data={this.props.my_tournaments} action="view"/>: 
+					<h6>Nothing to show.</h6>
 				}
-				{this.state.tommorrow === "outline-primary" ? 
-					<TournamentTable data={this.props.tournaments.tommorrow} action="view"/>: null
-				}
-				{this.state.upcoming === "outline-primary" ? 
-					<TournamentTable data={this.props.tournaments.upcoming} action="view"/>: null
-				}
+				
 			</div>
 		)
 	}

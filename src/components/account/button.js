@@ -3,7 +3,6 @@ import {Button, Alert, Modal, Form} from "react-bootstrap"
 import { connect } from "react-redux";
 import FileBase64 from 'react-file-base64';
 import Loader from "react-loader-spinner";
-import {Redirect} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../../themes/account.css';
 import {
@@ -44,7 +43,7 @@ class ButtonComponent extends React.Component {
   			return
   		}
 
-  		if(next_props.user == undefined && next_props.user == null){
+  		if(next_props.user === undefined && next_props.user == null){
   			
   			this.setState({
   				avatar:null,
@@ -94,7 +93,7 @@ class ButtonComponent extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.spinner)
+		
 		return (
 			<div>
 				<Button onClick={this.handleButtonClick} variant="outline-secondary" className="button">{this.props.title}</Button>
@@ -123,7 +122,7 @@ class ButtonComponent extends React.Component {
 			    			Object.keys(this.props.update_password_errors).map((key) => <Alert variant="danger">{key}: {this.props.update_password_errors[key][0]}</Alert>): null
 			    		}
 			        	<Form onSubmit={this.handleSubmit}>
-			        		{this.props.key_value == "password" ? 
+			        		{this.props.key_value === "password" ? 
 			        			<div>
 			        			<Form.Group className="mb-3" controlId="formBasicEmail">
 								    <Form.Label className="input-title">Old Password</Form.Label>

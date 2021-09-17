@@ -1,7 +1,5 @@
 import React from "react"
-import {Container} from "react-bootstrap"
 import { connect } from "react-redux";
-import "bootstrap/dist/css/bootstrap.min.css"
 import BaseTwo from "../common/base2"
 import MainTwo from "../common/main2"
 import '../../themes/account.css';

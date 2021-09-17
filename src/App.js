@@ -1,10 +1,6 @@
-import logo from './logo.svg';
 import React from "react";
-import './App.css';
+import './themes/account.css';
 import "bootstrap/dist/css/bootstrap.min.css"
-import {Container} from "react-bootstrap";
-
-import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 
 import {
@@ -14,10 +10,6 @@ import {
 import Navigation from "./routes/index"
 
 class App extends React.Component{
-	constructor(props){
-		super(props)
-	}
-
 	componentDidMount(){
 		
 		MY_LEAGUE_ACTION("spadequiz")

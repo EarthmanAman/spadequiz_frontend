@@ -1,11 +1,11 @@
 import React from 'react';
 import Loader from "react-loader-spinner";
 import { connect } from "react-redux";
-import { NavLink, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
-import {Button, Form, Row, Col, Alert} from "react-bootstrap"
+import {Button, Form, Alert} from "react-bootstrap"
 import '../../themes/register.css';
-import {LOGIN_USER, MESSAGES_ACTION, USER_DETAIL_ACTION} from "../../store/actions/actions"
+import {LOGIN_USER, MESSAGES_ACTION, USER_DETAIL_ACTION, MY_TOURNAMENTS_ACTION} from "../../store/actions/actions"
 
 class LoginComponent extends React.Component {
 	constructor(props){
@@ -20,11 +20,12 @@ class LoginComponent extends React.Component {
 	}
 
 	componentWillReceiveProps = async(next_props) => {
-  		console.log(next_props)
+  		
   		if(next_props.error === null && next_props.token !== undefined && next_props.token !== null){
-  			this.setState({show_error:false, next:true})
   			await this.props.USER_DETAIL_ACTION(this.state.username)
+  			await this.props.MY_TOURNAMENTS_ACTION(this.state.username)
   			this.props.MESSAGES_ACTION({"variant":"success", "message":"Logged in successfully"})
+  			await this.setState({show_error:false, next:true})
   		}
   	}
 	handleChange = e => {
@@ -98,6 +99,7 @@ const mapDispatchToProps =  {
     LOGIN_USER,
     MESSAGES_ACTION,
     USER_DETAIL_ACTION,
+    MY_TOURNAMENTS_ACTION,
 };
 
 export default connect(

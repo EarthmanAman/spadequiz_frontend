@@ -2,6 +2,7 @@ import React from "react"
 import { 
   MdGrade,
 } from "react-icons/md";
+import { Link } from "react-router-dom";
 import {Container, Row, Col, Table, Button} from "react-bootstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../../themes/home.css';
@@ -33,7 +34,9 @@ class TournamentTableComponent extends React.Component {
 				      <td>{tournament.start_date.time}</td>
 				      <td>{tournament.end_date.date}</td>
 				      <td>{tournament.end_date.time}</td>
-				      <td><Button variant="primary">{this.props.action}</Button></td>
+				      {this.props.action === "more" ?
+				      <td><Link to="/tournament/sds"><Button variant="primary">{this.props.action}</Button></Link></td>:
+				      <td><Button variant="primary">{this.props.action}</Button></td>}
 				    </tr>
 			  	)}
 			    

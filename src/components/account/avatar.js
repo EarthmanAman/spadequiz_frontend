@@ -1,6 +1,4 @@
 import React from "react";
-import {Button, Alert, Modal, Form} from "react-bootstrap"
-import "bootstrap/dist/css/bootstrap.min.css"
 import '../../themes/account.css';
 
 class AvatarComponent extends React.Component {
@@ -14,7 +12,7 @@ class AvatarComponent extends React.Component {
 	render() {
 		return (
 			<div className="account-avatar-div">
-				<img src={this.props.avatar} className="account-avatar"/>
+				<img src={this.props.avatar} className="account-avatar" alt="avatar"/>
 			</div>
 		)
 	}

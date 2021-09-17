@@ -40,7 +40,7 @@
 }
 
 .modal-content {
-	background: grey
+	background: grey !important;
 }
 
 .modal-title {

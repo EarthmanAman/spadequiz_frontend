@@ -91,3 +91,59 @@ export async function update_password(username, new_password, old_password) {
 		
 	}
 }
+
+export async function my_tournaments(username) {
+	
+	try{
+		let raw_data = await fetch(`https://spadequizapi.herokuapp.com/tournament/${username}`,{
+			method: 'GET',
+	        headers: {
+	            'Accept': 'application/json',
+	            'Content-Type': 'application/json',
+
+	        }
+ 
+		});
+
+		
+		let data = await raw_data.json();
+		console.log(data)
+		raw_data = null;
+		return data
+	}
+	catch(error){
+		console.log(error)
+		throw error;
+		
+	}
+}
+
+export async function confirm_partnership(id, confirmed) {
+	console.log("confirm api")
+	try{
+		let raw_data = await fetch(`https://spadequizapi.herokuapp.com/tournament/confirm_partnership/${id}`,{
+			method: 'PUT',
+	        headers: {
+	            'Accept': 'application/json',
+	            'Content-Type': 'application/json',
+
+	        },
+	        body: JSON.stringify({
+	            confirmed: confirmed,
+	           
+	        })
+ 
+		});
+
+		
+		let data = await raw_data.json();
+		console.log(data)
+		raw_data = null;
+		return data
+	}
+	catch(error){
+		console.log(error)
+		throw error;
+		
+	}
+}

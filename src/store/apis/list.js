@@ -1,7 +1,7 @@
 export async function my_league(slug) {
 	
 	try{
-		let raw_data = await fetch(`http://127.0.0.1:8000/${slug}`,{
+		let raw_data = await fetch(`https://spadequizapi.herokuapp.com/${slug}`,{
 			method: 'GET',
 	        headers: {
 	            'Accept': 'application/json',
@@ -28,7 +28,7 @@ export async function my_league(slug) {
 export async function my_league_announcements(slug) {
 	
 	try{
-		let raw_data = await fetch(`http://127.0.0.1:8000/${slug}/announcements.json`,{
+		let raw_data = await fetch(`https://spadequizapi.herokuapp.com/${slug}/announcements.json`,{
 			method: 'GET',
 	        headers: {
 	            'Accept': 'application/json',

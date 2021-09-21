@@ -9,6 +9,9 @@ import AccountComponent from "../components/account/index"
 import TournamentComponent from "../components/tournament/index"
 import MyTournComponent from "../components/tournament/my_tourn/index"
 import TournamentDetailComponent from "../components/tournament/open/index"
+import RulesComponent from "../components/rules/index"
+import NewsComponent from "../components/news/index"
+import ReportComponent from "../components/report/index"
 
 class MyRoutes extends React.Component {
 	render() {
@@ -17,8 +20,11 @@ class MyRoutes extends React.Component {
 				<Switch>
 					<Route path="/login" exact component={LoginComponent} />
 					<Route path="/account" exact component={AccountComponent} />
+					<Route path="/report" exact component={ReportComponent} />
 					<Route path="/tournament" exact component={TournamentComponent} />
-					<Route path="/my_tournament" component={MyTournComponent} />
+					<Route path="/my_tournament" exact component={MyTournComponent} />
+					<Route path="/rules" exact component={RulesComponent} />
+					<Route path="/news" exact component={NewsComponent} />
 					<Route path="/tournament/:league_name" component={TournamentDetailComponent} />
 					<Route path="/register" exact component={RegisterComponent} />
 					<Route path="/verify_email" exact component={EmailVerifyComponent} />

@@ -11,6 +11,7 @@ import {
 } from "../../../store/actions/actions"
 import NextMatchesComponent from "./next"
 import MyMatchesResultComponent from "./my_results"
+import ResultsComponent from "./tournament_results"
 
 
 class HelperComponent extends React.Component {
@@ -83,6 +84,9 @@ class HelperComponent extends React.Component {
 						<NextMatchesComponent />
 						<MyMatchesResultComponent />
 					</div>: null}
+
+				{this.state.pending_active ?
+					<ResultsComponent />: null}
 			</div>
 		)
 	}

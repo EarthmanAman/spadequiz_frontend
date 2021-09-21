@@ -6,14 +6,11 @@ import BaseTwo from "../common/base2"
 import MainTwo from "../common/main2"
 import '../../themes/tournament.css';
 import Title from "../home/title"
+import ReportFormComponent from "./report"
 import {
 	USER_DETAIL_ACTION,
 } from "../../store/actions/actions"
 
-import NextTournamentComponent from "./next_tournaments"
-import MyTournamentComponent from "./my_tournaments"
-import PendingsComponent from "./pendings"
-import RulesComponent from "./rules/index"
 
 class HelperComponent extends React.Component {
 	constructor(props){
@@ -23,8 +20,6 @@ class HelperComponent extends React.Component {
 			home_active: "active-button",
 			pending:"outline-secondary",
 			pending_active:"",
-			rules:"outline-secondary",
-			rules_active: "",
 		}
 	}
 
@@ -52,60 +47,23 @@ class HelperComponent extends React.Component {
 		})
 	}
 
-	handlerules = (e) => {
-		e.preventDefault()
-		this.setState({
-			home:"outline-secondary",
-			pending:"outline-secondary",
-			rules:"outline-primary",
-			rules_active: "active-button",
-			home_active: "",
-			pending_active: "",
-		})
-	}
-
 	render(){
-		console.log(this.props.user)
 		return (
 			<div className="tournament-content">
 				<div className="tournament-buttons">
-					<Button className={`tournament-button ${this.state.home_active}`} onClick={this.handlehome} variant={this.state.home}>Home</Button>
-					<Button className={`tournament-button ${this.state.pending_active}`} onClick={this.handlepending} variant={this.state.pending}>Pending Team Confirmation</Button>
-					<Button className={`tournament-button ${this.state.rules_active}`} onClick={this.handlerules} variant={this.state.rules}>Tournament Rules</Button>
+					<Button className={`tournament-button ${this.state.home_active}`} onClick={this.handlehome} variant={this.state.home}>Report</Button>
+					<Button className={`tournament-button ${this.state.pending_active}`} onClick={this.handlepending} variant={this.state.pending}>Reported Matches</Button>
 				</div>
-
-				{this.state.home_active === "active-button" ?
-				<div>
-					<div className="tournament-content-2">
-						<NextTournamentComponent tournaments={this.props.tournaments} />
-					</div>
-
-					<div className="tournament-content-2">
-						<Title title={"My Tournaments"}/>
-						{(this.props.user != null || this.props.user != undefined) ?
-						<MyTournamentComponent my_tournaments={this.props.my_tournaments.my_tournaments} />:
-						<h6>You must be logged in to view this</h6>}
-					</div>
-				</div>: null}
-
-				{this.state.pending_active === "active-button" ?
-				<div>
-					<PendingsComponent />
-				</div>: null}
-
-				{this.state.rules_active === "active-button" ?
-				<div>
-					<RulesComponent />
-				</div>: null}
+				{this.state.home_active == "active-button" ?
+				<ReportFormComponent />: null}
 				
-
 
 			</div>
 		)
 	}
 }
 
-class TournamentComponent extends React.Component {
+class ReportComponent extends React.Component {
 	componentDidMount = async() => {
 	}
 
@@ -135,6 +93,6 @@ const mapDispatchToProps =  {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TournamentComponent);
+)(ReportComponent);
 
 

@@ -59,10 +59,10 @@ class SideNavComponent extends React.Component {
                 <h4>LEAGUE STATISTICS</h4>
             </a>
 
-            <a className="item">
+            <Link to="/report" className="item">
                 <MdThumbDown className="icon"/>
                 <h4>REPORT LOSS</h4>
-            </a>
+            </Link>
 
             <Link to="/tournament" className="item">
                 <MdEventSeat className="icon"/>
@@ -85,15 +85,15 @@ class SideNavComponent extends React.Component {
             </a>
           }
 
-            <a className="item">
+            <Link to="/rules" className="item">
                 <MdAccountBalance className="icon"/>
                 <h4>RULES</h4>
-            </a>
+            </Link>
 
-            <a className="item">
+            <Link to="/news" className="item">
                 <MdFiberNew className="icon"/>
                 <h4>NEWS</h4>
-            </a>
+            </Link>
 
             <a className="item">
                 <MdLibraryBooks className="icon"/>

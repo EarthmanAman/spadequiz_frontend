@@ -1,7 +1,7 @@
 export async function login(username, password) {
 	console.log("in login")
 	try{
-		let rToken = await fetch(`https://spadequizapi.herokuapp.com/api/token/`,{
+		let rToken = await fetch(`http://127.0.0.1:8000/api/token/`,{
 			method: 'POST',
 	        headers: {
 	            'Accept': 'application/json',
@@ -38,7 +38,7 @@ export async function register(username, email, dob, password, confirm_password,
 	form_data.append('avatar', avatar)
 	console.log(username)
 	try{
-		let rToken = await fetch(`https://spadequizapi.herokuapp.com/accounts/user_create`,{
+		let rToken = await fetch(`http://127.0.0.1:8000/accounts/user_create`,{
 			method: 'POST',
 
 	        body: form_data

@@ -26,7 +26,7 @@ class SideNavComponent extends React.Component {
     }
   }
   handleAdminClick = () => {
-    window.open("http://127.0.0.1:8000/admin/");
+    window.open("https://spadequizapi.herokuapp.com/admin/");
   }
 
   handleClose = () => {
@@ -108,7 +108,7 @@ class SideNavComponent extends React.Component {
 
             <button className="item" onClick={this.handleAdminClick}>
                 <MdLibraryBooks className="icon"/>
-                <h4>ADMIN</h4>
+                <h4>ADMIN PORTAL</h4>
             </button>
     	</div>
     )

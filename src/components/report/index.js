@@ -7,6 +7,7 @@ import MainTwo from "../common/main2"
 import '../../themes/tournament.css';
 import Title from "../home/title"
 import ReportFormComponent from "./report"
+import ReportedMatchesComponent from "./reported_matches"
 import {
 	USER_DETAIL_ACTION,
 } from "../../store/actions/actions"
@@ -56,7 +57,8 @@ class HelperComponent extends React.Component {
 				</div>
 				{this.state.home_active == "active-button" ?
 				<ReportFormComponent />: null}
-				
+				{this.state.pending_active == "active-button" ?
+				<ReportedMatchesComponent />: null}
 
 			</div>
 		)

@@ -3,7 +3,7 @@ import Loader from "react-loader-spinner";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
-import {Button, Form, Alert} from "react-bootstrap"
+import {Button, Form, Alert, Row, Col} from "react-bootstrap"
 import '../../themes/register.css';
 import {LOGIN_USER, MESSAGES_ACTION, USER_DETAIL_ACTION, MY_TOURNAMENTS_ACTION} from "../../store/actions/actions"
 
@@ -50,7 +50,7 @@ class ReportFormComponent extends React.Component {
   	}
     return (
     	<div className="register-main">
-    		<h3>Enter your Details to Login</h3>
+    		<h3>Report Loss</h3>
     		<Loader
 		        type="ThreeDots"
 		        color="#00BFFF"
@@ -65,19 +65,60 @@ class ReportFormComponent extends React.Component {
 	    			Object.keys(this.props.error).map((key) => <Alert variant="danger">{key}: {this.props.error[key][0]}</Alert>): null
 	    		}
 				<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-				    <Form.Label className="label">Username</Form.Label>
+				    <Form.Label className="label">Partner Name</Form.Label>
 				    <Form.Control type="text" placeholder="spade123" name="username" onChange={this.handleChange}/>
 				</Form.Group>
+				
+				<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+					<Row>
+						<Col>
+							<Form.Label className="label">Opponent 1 Name</Form.Label>
+				    		<Form.Control type="text" placeholder="spade123" name="username" onChange={this.handleChange}/>
+						</Col>
+						<Col>
+							<Form.Label className="label">Opponent 2 Name</Form.Label>
+				    		<Form.Control type="text" placeholder="spade123" name="username" onChange={this.handleChange}/>
+						</Col>
+					</Row>
+				   
+				</Form.Group>
+				
+				  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+				  	<Form.Label className="label">Missed Match</Form.Label>
+				    <div key={`inline-radio`} className="mb-3">
+				      <Form.Check
+				        inline
+				        label="No"
+				        name="group1"
+				        type="radio"
+				        id={`inline-radio-1`}
+				        style={{"color":"white"}}
+				      />
+				      <Form.Check
+				        inline
+				        label="Yes"
+				        name="group1"
+				        type="radio"
+				        id={`inline-radio-2`}
+				        style={{"color":"white"}}
+				      />
+				    </div>
+				  </Form.Group>
 
 				  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-				    <Form.Label className="label">Password</Form.Label>
-				    <Form.Control type="Password" name="password" onChange={this.handleChange}/>
+				    <Form.Label className="label">Comment</Form.Label>
+				    <Form.Control  
+				    	as="textarea"
+      					placeholder="Leave a comment here"
+      					style={{ height: '100px' }} 
+      					name="comment"
+      					onChange={this.handleChange}/>
 				  </Form.Group> 		
 			  
 			  <Button 
 			  	type="submit" 
 			  	variant="secondary"
-			  	>LOGIN</Button>
+			  	>REPORT</Button>
 			</Form>
 
 			

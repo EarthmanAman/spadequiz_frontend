@@ -21,7 +21,8 @@ class SideNavComponent extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      show:false
+      show:false,
+      message: "",
     }
   }
   handleAdminClick = () => {
@@ -41,7 +42,7 @@ class SideNavComponent extends React.Component {
               <Modal.Header>
                 <Modal.Title>Login Required</Modal.Title>
               </Modal.Header>
-              <Modal.Body>You must be logged in to view your account</Modal.Body>
+              <Modal.Body>{this.state.message}</Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={this.handleClose}>
                   Close
@@ -58,11 +59,16 @@ class SideNavComponent extends React.Component {
                 <MdGridOn className="icon"/>
                 <h4>LEAGUE STATISTICS</h4>
             </a>
-
+            {(this.props.token !== null && this.props.token !== undefined) ?
             <Link to="/report" className="item">
                 <MdThumbDown className="icon"/>
                 <h4>REPORT LOSS</h4>
-            </Link>
+            </Link>:
+              <a onClick={() => this.setState({show:true, message:"You must be logged in to report a match."})} className="item">
+                <MdThumbDown className="icon"/>
+                <h4>REPORT LOSS</h4>
+            </a>
+            }
 
             <Link to="/tournament" className="item">
                 <MdEventSeat className="icon"/>
@@ -79,7 +85,7 @@ class SideNavComponent extends React.Component {
                 <MdPerson className="icon"/>
                 <h4>MY ACCOUNTS</h4>
             </Link>: 
-            <a onClick={() => this.setState({show:true})} className="item">
+            <a onClick={() => this.setState({show:true, message:"You must be logged in to view my account"})} className="item">
                 <MdPerson className="icon"/>
                 <h4>MY ACCOUNTS</h4>
             </a>

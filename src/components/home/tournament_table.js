@@ -22,7 +22,8 @@ class TournamentTableComponent extends React.Component {
 			    </tr>
 			  </thead>
 			  <tbody>
-			  	{this.props.data.map((tournament) => 
+			  	{this.props.data.length > 0 ?
+			  		this.props.data.map((tournament) => 
 			  		<tr>
 				      <td>{tournament.admin}</td>
 				      <td>{tournament.name}</td>
@@ -31,7 +32,10 @@ class TournamentTableComponent extends React.Component {
 				      <td>{tournament.end_date.date}</td>
 				      <td>{tournament.end_date.time}</td>
 				    </tr>
-			  	)}
+			  	):
+			  		<td colSpan={8}><h6>Nothing to show.</h6></td>
+			  		
+			  	}
 			    
 			    
 			  </tbody>

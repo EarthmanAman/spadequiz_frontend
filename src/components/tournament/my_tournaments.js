@@ -11,11 +11,11 @@ import TournamentTable from "./tournament_table"
 class TournamentCenterComponent extends React.Component {
 
 	render() {
-		console.log(this.props.my_tournaments)
+		
 		return (
 			<div >
 				
-				{this.props.my_tournaments.length !== 0 ? 
+				{this.props.my_tournaments !== undefined && this.props.my_tournaments.length !== 0 ? 
 					<TournamentTable data={this.props.my_tournaments} action="view"/>: 
 					<h6>Nothing to show.</h6>
 				}

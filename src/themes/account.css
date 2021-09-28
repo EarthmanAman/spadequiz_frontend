@@ -1,8 +1,4 @@
-.main {
-	background: #121212;
-	padding: 1% 5%;
-	min-height: 700px;
-}
+
 
 .account-content {
 	margin: 0px 0%;
@@ -34,7 +30,7 @@
 
 .button {
 	margin-bottom: 10px;
-	font-size: 12px;
+	font-size: 11px !important;
 	padding: 10px 10px;
 	width: 100%;
 }

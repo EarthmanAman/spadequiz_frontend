@@ -15,7 +15,10 @@ class RulesComponent extends React.Component {
 					<Button variant="outline-secondary" className="button">Tournament Specific</Button>
 				</div>
 				<div className="rules-content">
-					<p>Hello heree</p>
+					<div className="rule">
+						<p>Hello heree</p>
+					</div>
+					
 				</div>
 			</div>
 		)

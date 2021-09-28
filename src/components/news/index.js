@@ -30,11 +30,20 @@ class HelperComponent extends React.Component {
 					<Button variant="outline-secondary" className="button">Tournament News</Button>
 				</div>
 				<div className="rules-content">
-					<p>Hello heree</p>
-					<div className="date">
-						<h6>August, 03, 2021; <span>13:34</span></h6>
+					<div className="rule">
+						<p>Hello heree</p>
+						<div className="date">
+							<h6>August, 03, 2021; <span>13:34</span></h6>
+						</div>
+					</div>
+					<div className="rule">
+						<p>Another news heree</p>
+						<div className="date">
+							<h6>August, 03, 2021; <span>13:34</span></h6>
+						</div>
 					</div>
 				</div>
+				
 			</div>
 		)
 	}

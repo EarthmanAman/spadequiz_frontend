@@ -63,7 +63,8 @@ class PendingsComponent extends React.Component {
 			    </tr>
 			  </thead>
 			  <tbody>
-			  	{this.props.my_tournaments.pendings.map((pending) => 
+			  	{this.props.my_tournaments.pendings !== undefined ?
+			  	this.props.my_tournaments.pendings.map((pending) => 
 			  		<tr>
 				      <td>Name</td>
 				      <td>{pending.partner1.username}</td>
@@ -72,8 +73,8 @@ class PendingsComponent extends React.Component {
 				      <td>{pending.tournament.start_date.time}</td>
 				      <td><Button variant="primary" onClick={(e) => this.handleConfirm(e, pending.id)}>Confirm</Button></td>
 				    </tr>
-			  	)}
-			    
+			  	)
+			    : null}
 			    
 			  </tbody>
 			</Table>

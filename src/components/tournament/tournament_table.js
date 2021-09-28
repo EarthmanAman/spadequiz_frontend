@@ -5,7 +5,7 @@ import {
 import { Link } from "react-router-dom";
 import {Container, Row, Col, Table, Button} from "react-bootstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
-import '../../themes/home.css';
+import '../../themes/tournament.css';
 
 
 class TournamentTableComponent extends React.Component {
@@ -25,7 +25,8 @@ class TournamentTableComponent extends React.Component {
 			    </tr>
 			  </thead>
 			  <tbody>
-			  	{this.props.data.map((tournament) => 
+			  	{this.props.data.length > 0 ? 
+			  		this.props.data.map((tournament) => 
 			  		<tr>
 				      <td>{tournament.admin}</td>
 				      <td>{tournament.name}</td>
@@ -38,7 +39,10 @@ class TournamentTableComponent extends React.Component {
 				      <td><Link to="/tournament/sds"><Button variant="primary">{this.props.action}</Button></Link></td>:
 				      <td><Link to="/my_tournament"><Button variant="primary">{this.props.action}</Button></Link></td>}
 				    </tr>
-			  	)}
+			  	):
+
+			  		<td colSpan={8}><h6>Nothing to show.</h6></td>
+			  	}
 			    
 			    
 			  </tbody>

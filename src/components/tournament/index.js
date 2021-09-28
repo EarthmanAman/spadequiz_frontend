@@ -7,7 +7,7 @@ import MainTwo from "../common/main2"
 import '../../themes/tournament.css';
 import Title from "../home/title"
 import {
-	USER_DETAIL_ACTION,
+	MY_LEAGUE_ACTION,
 } from "../../store/actions/actions"
 
 import NextTournamentComponent from "./next_tournaments"
@@ -65,7 +65,7 @@ class HelperComponent extends React.Component {
 	}
 
 	render(){
-		console.log(this.props.user)
+		
 		return (
 			<div className="tournament-content">
 				<div className="tournament-buttons">
@@ -82,7 +82,7 @@ class HelperComponent extends React.Component {
 
 					<div className="tournament-content-2">
 						<Title title={"My Tournaments"}/>
-						{(this.props.user != null || this.props.user != undefined) ?
+						{(this.props.user != null && this.props.user != undefined) ?
 						<MyTournamentComponent my_tournaments={this.props.my_tournaments.my_tournaments} />:
 						<h6>You must be logged in to view this</h6>}
 					</div>
@@ -107,6 +107,7 @@ class HelperComponent extends React.Component {
 
 class TournamentComponent extends React.Component {
 	componentDidMount = async() => {
+		await this.props.MY_LEAGUE_ACTION("spadequiz")
 	}
 
 	render() {
@@ -129,7 +130,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps =  {
-    USER_DETAIL_ACTION,
+    MY_LEAGUE_ACTION,
 };
 
 export default connect(
